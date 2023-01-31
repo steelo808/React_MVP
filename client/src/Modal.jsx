@@ -1,4 +1,4 @@
-import { json } from 'express';
+import express from 'express';
 import React from 'react'
 import { useState } from 'react';
 
@@ -6,26 +6,26 @@ import { useState } from 'react';
 
 const Modal = ({ closeModal }) => {
     const [title, setTitle] = useState("");
-    const postData =() =>{
-        fetch("/api/tasks", {
-            method: 'POST',
-            headers:{"content-type":"application.json"},
-            body:JSON.stringify({
-                heading: "Find Lances Mustache",
-                description: "Use apple maps to find lance",
-                to_do: true,
-                doing: false,
-                done: false
-            })
+    // const postData =() =>{
+    //     fetch("/api/tasks", {
+    //         method: 'POST',
+    //         headers:{"content-type":"application.json"},
+    //         body:JSON.stringify({
+    //             heading: "Find Lances Mustache",
+    //             description: "Use apple maps to find lance",
+    //             to_do: true,
+    //             doing: false,
+    //             done: false
+    //         })
 
-    }).then(()=>{
+    // }).then(()=>{
 
-        })
-    }
-    // const printTitle =(e)=>{
-    //     console.log(e.target.value);
+    //     })
     // }
-    //  setTitle(e.target.value)
+    const printTitle =(e)=>{
+        console.log(e.target.value);
+    }
+    setTitle(e.target.value)
 
     const handleChange = (e)=>{
         setTitle(e.target.value);
@@ -64,5 +64,5 @@ const Modal = ({ closeModal }) => {
     )
 }
 
-export default Modal
+export default Modal;
 
